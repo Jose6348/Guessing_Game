@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Background geral do jogo */
+body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Efeito de névoa no fundo */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255,0,150,0.2) 0%, rgba(0,0,0,0) 80%);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+/* Container do jogo */
+.game-container {
+    width: 100vw;
+    max-width: 1200px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação de brilho */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6); }
+    50% { box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.9); }
+    100% { box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.6); }
+}
+
+/* Tela do jogo */
+.game-screen {
+    text-align: center;
+    padding: 30px;
+    border: 3px solid rgba(0, 255, 255, 0.4);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    animation: glow 2s infinite alternate;
+}
+
+/* Título do jogo */
+h1 {
+    color: cyan;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px cyan;
+    margin-bottom: 20px;
+}
+
+/* Texto informativo */
+p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Input estilizado */
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Campo de entrada */
+input {
+    width: 100px;
+    padding: 12px;
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid cyan;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: cyan;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Orbitron', sans-serif;
+}
+
+input:focus {
+    border-color: magenta;
+    box-shadow: 0px 0px 12px magenta;
+}
+
+/* Botão futurista */
+button {
+    background: linear-gradient(135deg, cyan, magenta);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.6);
+}
+
+button:hover {
+    background: linear-gradient(135deg, magenta, cyan);
+    box-shadow: 0px 6px 25px rgba(255, 0, 255, 0.9);
+    transform: scale(1.1);
+}
+
+/* Mensagem do jogo */
+.mensagem {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 5px solid cyan;
+}
+
+/* Histórico de tentativas */
+.tentativas {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 5px solid magenta;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .game-container {
+        width: 95%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input {
+        width: 80px;
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+}
